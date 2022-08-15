@@ -11,5 +11,7 @@ int main() {
 
     vel_kmph = vel_ms * 3.6;
 
-    cout<<"Velocidade: " << vel_kmph << " km/h\n";
+    cout<<"Velocidade: " << vel_kmph << " km/h" << endl;
+
+    return 0;
 }
