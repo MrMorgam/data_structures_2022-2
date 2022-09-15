@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool estaBalanceada(string texto){
+bool estaBalanceado(string texto){
     int qtdCaracteres = texto.length(); 
     Pilha aberta = pilha(qtdCaracteres);
 
@@ -32,9 +32,9 @@ bool estaBalanceada(string texto){
 int main(){
     string texto = "{[([{}])]}";
 
-    if(estaBalanceada(texto)){
-        cout << "Balanceada";
+    if(estaBalanceado(texto)){
+        cout << "Balanceado";
     } else {
-        cout << "Desbalanceada";
+        cout << "Desbalanceado";
     }    
 }
