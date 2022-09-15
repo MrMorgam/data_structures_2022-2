@@ -1,0 +1,29 @@
+1.1)
+    a) Não é um conjunto, pois há uma ordem de repetição entre os itens do
+conjunto.
+    b) Não é uma lista, pois os itens do conjunto não estão organizados linearmente.
+    c) Não é uma árvore, pois os itens do conjunto não estão organizados de forma
+hierárquica.
+
+1.2)
+    a) Grafo.
+    b) Árvore.
+    c) Lista.
+    d) Árvore.
+
+1.3) O programa exibe a palavra "diferentes" pois ao comparar as sequências de
+caracteres s e t, o programa, na verdade, estará verificando se o endereço de memória
+do primeiro caractere de cada uma das variáveis é igual.
+
+1.4) O programa exibe as sequências de caracteres "um" e "dois", respectivamente,
+pois, após a primeira exibição do valor do registro x, o seu valor é reatribuído para
+receber o valor contido no registro y.
+
+1.5) O programa exibe como saída “5, 3”, pois os valores dos ponteiros são alterados
+através de operações aritméticas, ao ponto que a variável a recebe o valor 5 e a
+variável b recebe o valor 3.
+
+1.6)
+    a) Dinâmica sequencial.
+    b) Estática encadeada.
+    c) Dinâmica encadeada.
