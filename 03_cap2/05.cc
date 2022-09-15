@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 bool estaBalanceado(string texto){
     int qtdCaracteres = texto.length(); 
 
