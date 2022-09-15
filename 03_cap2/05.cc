@@ -5,6 +5,7 @@ using namespace std;
 
 bool estaBalanceado(string texto){
     int qtdCaracteres = texto.length(); 
+
     Pilha aberta = pilha(qtdCaracteres);
 
     for(int i = 0; i < qtdCaracteres; i++){
@@ -26,6 +27,7 @@ bool estaBalanceado(string texto){
             }
         }
     }
+
     return pilhaVazia(aberta);
 }
 
