@@ -2,9 +2,12 @@
 
 using namespace std;
 
+
+typedef char Itemf;
+
 class No {
     public:
-        char conteudo;
+        Itemf conteudo;
         No *prox;
         
         No(char n) {
@@ -24,7 +27,7 @@ class Fila {
             fim = NULL;
         }
 
-        void insereNaFila(char n) {
+        void insereNaFila(Itemf n) {
             No *novo= new No(n);
 
             if (inicio == NULL) {
@@ -38,7 +41,7 @@ class Fila {
         
         char retiraDaFila(){
             No *elem;
-            char conteudo;
+            Itemf conteudo;
             if (inicio != NULL){
                 elem = inicio;
                 conteudo = elem -> conteudo;
@@ -59,7 +62,7 @@ class Fila {
             cout << "\n\n--------Mostra a Fila---------------\n\n";
 
             while (atual != NULL){
-                printf("\nConteudo: %c\n", atual->conteudo);
+                printf("\nConteudo: %c\n", atual -> conteudo);
 
                 atual = atual -> prox;
             }

@@ -25,26 +25,26 @@ char* getPosfixa(char *e) {
 
     for(int i = 0; e[i]; i++){
         if(e[i] =='('){
-            push(e[i], T);
+            enfileira(e[i], T);
         } else if (isalpha(e[i])){
             s[j++] = e[i];
 
         } else if (strchr("+-/*", e[i])) {
             while(!pilhaVazia(T) && (prioridade(getTopo(T)) >= prioridade(e[i]))){
-                s[j++] = pop(T);
+                s[j++] = desenfileira(T);
             }
-            push(e[i], T);
+            enfileira(e[i], T);
         }
         else if (e[i] == ')') {
             while(getTopo(T) != '('){
-                s[j++] = pop(T);
+                s[j++] = desenfileira(T);
             }
-            pop(T);
+            desenfileira(T);
         }
     }
     
     while(!pilhaVazia(T)){
-            s[j++] = pop(T);
+            s[j++] = desenfileira(T);
         }
     s[j] = '\0';
     return s;

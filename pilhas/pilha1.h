@@ -29,7 +29,7 @@ bool pilhaCheia(Pilha p){
 }
 
 
-void push(Itemp n, Pilha p){
+void empilha(Itemp n, Pilha p){
 	if(pilhaCheia(p)){
 		printf("Pilha cheia");
 	} else {
@@ -39,7 +39,7 @@ void push(Itemp n, Pilha p){
 }
 
 
-Itemp pop(Pilha p) { 
+Itemp desempilha(Pilha p) { 
 	if(pilhaVazia(p)){
 		printf("Pilha vazia");
 	} else {
@@ -50,7 +50,7 @@ Itemp pop(Pilha p) {
 }
 
 
-void destroi(Pilha *Q){
+void destroiPilha(Pilha *Q){
 	free((*Q)->item);
 	(*Q)->item = NULL;
 	free(*Q);

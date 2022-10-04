@@ -11,19 +11,19 @@ bool estaBalanceado(string texto){
 
     for(int i = 0; i < qtdCaracteres; i++){
         if(texto[i] == '[' || texto[i] == '{' || texto[i] == '(') {
-            push(texto[i], aberta);
+            enfileira(texto[i], aberta);
         }
 
         if(texto[i] == ']'){
-            if(!(pop(aberta) == '[')) {
+            if(!(desenfileira(aberta) == '[')) {
                 return false;
             }
         } else if(texto[i] == '}'){
-            if(!(pop(aberta) == '{')) {
+            if(!(desenfileira(aberta) == '{')) {
                 return false;
             }
         } else if(texto[i] == ')'){
-            if(!(pop(aberta) == '(')) {
+            if(!(desenfileira(aberta) == '(')) {
                 return false;
             }
         }

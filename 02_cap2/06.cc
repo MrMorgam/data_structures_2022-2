@@ -15,11 +15,11 @@ int main(){
         printf("? ");
         cin >> s;
         
-        push(s, p);
+        enfileira(s, p);
     }
 
     while(!pilhaVazia(p)){
-        cout << pop(p) << endl;
+        cout << desenfileira(p) << endl;
     }
 
     return 0;

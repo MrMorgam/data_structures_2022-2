@@ -3,7 +3,7 @@
 using namespace std;
 
 
-typedef char Itemf;
+typedef int Itemf;
 
 class No {
     public:
@@ -28,10 +28,10 @@ class Fila {
         }
         
         
-        void push(Itemf n) {
+        void enfileira(Itemf n) {
             No *novo_no = new No(n);
             
-            if (isEmpty()) {
+            if (filaVazia()) {
                 inicio = novo_no;
             } else {
                 fim -> prox = novo_no;
@@ -41,7 +41,7 @@ class Fila {
         }
         
         
-        Itemf pop() {
+        Itemf desenfileira() {
             Itemf n = inicio -> conteudo;
             No *no_aux = inicio;
             inicio = inicio -> prox;
@@ -50,13 +50,13 @@ class Fila {
             return n;
         }
         
-        bool isEmpty() {
+        bool filaVazia() {
         	return inicio == NULL;
 		}
 		
-		void popAll(Fila *fila) {
-			while (!fila -> isEmpty()) {
-				fila -> pop();
+		void desenfileiraTodos(Fila *fila) {
+			while (!fila -> filaVazia()) {
+				fila -> desenfileira();
 			}
 			
 			free(inicio);
@@ -69,45 +69,3 @@ class Fila {
 			cout << "empty stack";
 		}
 };
-
-
-int main() {
-    Fila *f = new Fila();
-    
-    f -> push('H');
-    f -> push('e');
-    f -> push('l');
-    f -> push('l');
-    f -> push('o');
-    f -> push(' ');
-    f -> push('W');
-    f -> push('o');
-    f -> push('r');
-    f -> push('l');
-    f -> push('d');
-    f -> push('!');
-    
-    while (!f -> isEmpty()) {
-    	cout << f -> pop();
-	}
-	
-	cout << endl;
-	
-f -> push('H');
-    f -> push('e');
-    f -> push('l');
-    f -> push('l');
-    f -> push('o');
-    f -> push(' ');
-    f -> push('W');
-    f -> push('o');
-    f -> push('r');
-    f -> push('l');
-    f -> push('d');
-    f -> push('!');
-    
-    f -> popAll(f);
-    
-    
-    return 0;
-}

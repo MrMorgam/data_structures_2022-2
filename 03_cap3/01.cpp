@@ -22,20 +22,20 @@ int getResultPosfix (char *e) {
     Pilha P = pilha(256);
     for(int i = 0; e[i]; i++){
         if(isdigit(e[i]))
-            push(e[i] - '0', P); 
+            enfileira(e[i] - '0', P); 
         else {
-            int y = pop(P);
-            int x = pop(P);
+            int y = desenfileira(P);
+            int x = desenfileira(P);
             switch(e[i]){
-                case '+': push(x+y, P); break;
-                case '-': push(x-y, P); break;
-                case '*': push(x*y, P); break;
-                case '/': push(x/y, P); break;
+                case '+': enfileira(x+y, P); break;
+                case '-': enfileira(x-y, P); break;
+                case '*': enfileira(x*y, P); break;
+                case '/': enfileira(x/y, P); break;
             }
         }    
     }
 
-    int z = pop(P);
+    int z = desenfileira(P);
 
     return z;
 }
@@ -47,26 +47,26 @@ char* getPosfixa(char *e) {
 
     for(int i = 0; e[i]; i++){
         if(e[i] =='('){
-            push(e[i], T);
+            enfileira(e[i], T);
         } else if (isdigit(e[i])){
             s[j++] = e[i];
 
         } else if (strchr("+-/*", e[i])) {
             while(!pilhaVazia(T) && (prioridade(getTopo(T)) >= prioridade(e[i]))){
-                s[j++] = pop(T);
+                s[j++] = desenfileira(T);
             }
-            push(e[i], T);
+            enfileira(e[i], T);
         }
         else if (e[i] == ')') {
             while(getTopo(T) != '('){
-                s[j++] = pop(T);
+                s[j++] = desenfileira(T);
             }
-            pop(T);
+            desenfileira(T);
         }
     }
     
     while(!pilhaVazia(T)){
-            s[j++] = pop(T);
+            s[j++] = desenfileira(T);
         }
     s[j] = '\0';
 

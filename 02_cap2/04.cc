@@ -20,7 +20,7 @@ int main(){
 
     for(int i = 0; i < qtd_de_numeros; i++){
         scanf("%d", &numero);
-        push(numero, A);
+        enfileira(numero, A);
     }
 
 
@@ -37,23 +37,23 @@ int main(){
         }
 
         for(int k = 0; k < qtd_de_numeros - indice_maior - i; k++){
-            push(pop(A), B);
+            enfileira(desenfileira(A), B);
         }                                                           
         
-        pop(B);
+        desenfileira(B);
 
         for(int v = 0; v < (qtd_de_numeros - indice_maior - i - 1); v++){ 
-            push(pop(B), A);
+            enfileira(desenfileira(B), A);
         }
-        push(maior, B); 
+        enfileira(maior, B); 
     }
 
     for(int i = 0; i < qtd_de_numeros; i++){
-        push(pop(B), A);
+        enfileira(desenfileira(B), A);
     }
 
     for(int i = 0; i < qtd_de_numeros; i++){
-        cout << pop(A) << " ";
+        cout << desenfileira(A) << " ";
     }
 
     return 0;
