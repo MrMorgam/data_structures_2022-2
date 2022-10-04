@@ -89,10 +89,9 @@ int main(){
 			f1 -> insereNaFila(letra);
 			
 			while (f2 -> fila_vazia() != true) {
-				f1 -> insereNaFila(f2 -> retiraDaFila());
+			    f1 -> insereNaFila(f2 -> retiraDaFila());
 			}
 		}
-
 
         cout << "\nDeseja continuar (1-Sim 2-Nao)? ";
         cin >> resp;
