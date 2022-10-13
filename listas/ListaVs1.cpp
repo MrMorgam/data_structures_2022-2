@@ -4,7 +4,7 @@
 using namespace std;
 
 typedef struct aluno{
-	int mat;
+	int matricula;
 	string nome;
 } Aluno; 
 
@@ -21,33 +21,35 @@ void inserir(Aluno a){
 }
 
 // Retorna a posicao do elemento procurado
-int procurar(int mat) {	
-	int pos = -1;
+int procurar(int matricula) {	
+	int posicao = 0;
 
 	for (int i = 0; i < topo + 1; i++) {
-		if (mat == turma[i].mat) {
-			pos = i;
+		if (matricula == turma[i].matricula) {
+			posicao = i + 1;
 			break;
 		}
 	}
 
-	return pos + 1;
+	return posicao;
 }
 
 // Recebe a posicao e imprime o elemento na tela.
-void mostrar(int pos) {
-	if (pos - 1 < topo + 1) {
-		cout << "Matrícula: " << turma[pos-1].mat << endl;
-		cout << "Aluno: " << turma[pos-1].nome << endl;
+void mostrar(int posicao) {
+	int indice = posicao - 1;
+
+	if (indice < topo + 1) {
+		cout << "Matrícula: " << turma[posicao-1].matricula << endl;
+		cout << "Aluno: " << turma[posicao-1].nome << endl;
 	} else {
 		cout << "Posição inválida!" << endl;
 	}
 }
 
 // Procura o elemento e depois mostra o elemento encontrado (se nao for encontrado informa que ele nao existe).
-int consultar(int mat) {
+int consultar(int matricula) {
 	for (int i = 0; i < topo + 1; i++) {
-		if (mat == turma[i].mat) {
+		if (matricula == turma[i].matricula) {
 			mostrar(i+1);
 			return 1;
 		}
@@ -58,12 +60,20 @@ int consultar(int mat) {
 }
 
 // Estratégia 1: colocar o último elemento da lista na posição do elemento removido.
-void remover00(int pos) {
-	// A fazer
+void remover00(int posicao) {
+	int indice = posicao - 1;
+
+	if (indice < topo + 1) {
+		turma[posicao] = turma.[topo];
+		turma[topo] = NULL; 
+
+	} else {
+		cout << "Posição inválida" << endl;
+	}
 }
 
 // Estratégia 2: mover todos os elementos que estão após o elemento que deve ser removido uma posição a frente.
-void remover01(int pos) {
+void remover01(int posicao) {
 	// A fazer
 }
 
@@ -74,19 +84,19 @@ int main() {
 	Aluno ana;
 	Aluno pedro;
 
-	joao.mat = 12345;
+	joao.matricula = 12345;
 	joao.nome = "João da Silva";
 
-	maria.mat = 54321;
+	maria.matricula = 54321;
 	maria.nome = "Maria de Sousa";
 
-	jose.mat = 40028;
+	jose.matricula = 40028;
 	jose.nome = "José Ferreira";
 
-	ana.mat = 89223;
+	ana.matricula = 89223;
 	ana.nome = "Ana Pereira";
 
-	pedro.mat = 22212;
+	pedro.matricula = 22212;
 	pedro.nome = "Pedro Sampaio";
 
 	inserir(joao);
@@ -113,6 +123,9 @@ int main() {
 	cout << endl;
 	consultar(66666);
 	cout << endl;
+
+	remover00(1);
+	remover00(6);
 
 	// Mostrar os alunos da turma
 	cout << "Alunos da turma: " << endl << endl;
