@@ -112,7 +112,7 @@ int main() {
 	jose.matricula = 40028;
 	jose.nome = "José Ferreira";
 
-	ana.matricula = 89223;
+	ana.matricula = 89222;
 	ana.nome = "Ana Pereira";
 
 	pedro.matricula = 22212;
