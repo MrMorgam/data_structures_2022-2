@@ -64,16 +64,36 @@ void remover00(int posicao) {
 	int indice = posicao - 1;
 
 	if (indice < topo + 1) {
-		turma[posicao] = turma[topo--];
-
+		turma[indice] = turma[topo--];
 	} else {
-		cout << "Posição inválida" << endl;
+		cout << "Posição inválida!" << endl;
 	}
 }
 
 // Estratégia 2: mover todos os elementos que estão após o elemento que deve ser removido uma posição a frente.
 void remover01(int posicao) {
-	// A fazer
+	int indice = posicao - 1;
+
+	if (indice < topo + 1) {
+		topo--;
+
+		for (int i = indice; i < topo + 1; i++) {
+			Aluno aux = turma[i+1];
+			turma[i] = aux;
+		}
+	} else {
+		cout << "Posição inválida!" << endl;
+	}
+}
+
+void exibirAlunos() {
+	cout << "Alunos da turma: " << endl << endl;
+	
+	for (int i = 0; i < topo + 1; i++) {
+		cout << "Aluno " << i + 1 << endl;
+		mostrar(i+1);
+		cout << endl;
+	}
 }
 
 int main() {
@@ -108,32 +128,34 @@ int main() {
 	cout << endl;
 
 	cout << procurar(40028) << endl;
-	cout << procurar(66666) << endl; // Tentando procurar uma matrícula que não existe
+	cout << procurar(66666) << endl; // Tentando procurar uma matrícula inexistente
 
 	cout << endl;
 	mostrar(3);
 	cout << endl;
 	mostrar(5);
 	cout << endl;
-	mostrar(6); // Tentando mostrar aluno em posição que não existe
+	mostrar(6); // Tentando mostrar aluno em posição inexistente
 	cout << endl;
 
 	consultar(40028);
 	cout << endl;
-	consultar(66666);
+	consultar(66666); // Tentando consultar aluno com uma matrícula inexistente
+
 	cout << endl;
+	exibirAlunos();
 
 	remover00(1);
-	remover00(6);
+	remover00(5); // Tentando remover aluno de uma posição inexistente
 
-	// Mostrar os alunos da turma
-	cout << "Alunos da turma: " << endl << endl;
-	
-	for (int i = 0; i < topo + 1; i++) {
-		cout << "Aluno " << i + 1 << endl;
-		mostrar(i+1);
-		cout << endl;
-	}
+	cout << endl;
+	exibirAlunos();
+
+	remover01(2);
+	remover01(4); // Tentando remover aluno de uma posição inexistente
+
+	cout << endl;
+	exibirAlunos();
 		
 	return 0;
 }
