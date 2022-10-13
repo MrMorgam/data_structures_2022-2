@@ -64,8 +64,7 @@ void remover00(int posicao) {
 	int indice = posicao - 1;
 
 	if (indice < topo + 1) {
-		turma[posicao] = turma.[topo];
-		turma[topo] = NULL; 
+		turma[posicao] = turma[topo--];
 
 	} else {
 		cout << "Posição inválida" << endl;
