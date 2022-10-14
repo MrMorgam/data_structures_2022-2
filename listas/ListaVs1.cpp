@@ -20,7 +20,6 @@ void inserir(Aluno a){
 	}
 }
 
-// Retorna a posicao do elemento procurado
 int procurar(int matricula) {	
 	int posicao = 0;
 
@@ -34,7 +33,6 @@ int procurar(int matricula) {
 	return posicao;
 }
 
-// Recebe a posicao e imprime o elemento na tela.
 void mostrar(int posicao) {
 	int indice = posicao - 1;
 
@@ -46,7 +44,6 @@ void mostrar(int posicao) {
 	}
 }
 
-// Procura o elemento e depois mostra o elemento encontrado (se nao for encontrado informa que ele nao existe).
 int consultar(int matricula) {
 	for (int i = 0; i < topo + 1; i++) {
 		if (matricula == turma[i].matricula) {
@@ -59,7 +56,6 @@ int consultar(int matricula) {
 	return 0;
 }
 
-// Estratégia 1: colocar o último elemento da lista na posição do elemento removido.
 void remover00(int posicao) {
 	int indice = posicao - 1;
 
@@ -70,7 +66,6 @@ void remover00(int posicao) {
 	}
 }
 
-// Estratégia 2: mover todos os elementos que estão após o elemento que deve ser removido uma posição a frente.
 void remover01(int posicao) {
 	int indice = posicao - 1;
 
@@ -124,37 +119,37 @@ int main() {
 	inserir(ana);
 	inserir(pedro);
 
-	inserir(pedro); // Tentando adicionar elemento após o vetor estar cheio
-	cout << endl;
+	//inserir(pedro);
+	//cout << endl;
 
-	cout << procurar(40028) << endl;
-	cout << procurar(66666) << endl; // Tentando procurar uma matrícula inexistente
+	//cout << procurar(40028) << endl;
+	//cout << procurar(66666) << endl;
 
-	cout << endl;
-	mostrar(3);
-	cout << endl;
-	mostrar(5);
-	cout << endl;
-	mostrar(6); // Tentando mostrar aluno em posição inexistente
-	cout << endl;
+	//cout << endl;
+	//mostrar(3);
+	//cout << endl;
+	//mostrar(5);
+	//cout << endl;
+	//mostrar(6);
+	//cout << endl;
 
-	consultar(40028);
-	cout << endl;
-	consultar(66666); // Tentando consultar aluno com uma matrícula inexistente
+	//consultar(40028);
+	//cout << endl;
+	//consultar(66666);
 
-	cout << endl;
-	exibirAlunos();
+	//cout << endl;
+	//exibirAlunos();
 
-	remover00(1);
-	remover00(5); // Tentando remover aluno de uma posição inexistente
+	//remover00(1);
+	//remover00(5);
 
-	cout << endl;
-	exibirAlunos();
+	//cout << endl;
+	//exibirAlunos();
 
-	remover01(2);
-	remover01(4); // Tentando remover aluno de uma posição inexistente
+	//remover01(2);
+	//remover01(4);
+	//cout << endl;
 
-	cout << endl;
 	exibirAlunos();
 		
 	return 0;
