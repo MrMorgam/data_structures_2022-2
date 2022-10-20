@@ -3,15 +3,15 @@
 
 using namespace std;
 
+typedef int Iteml;
+
 class No {
 	public:
-		int mat;
-		string nome;
+		Iteml item;
 		No *prox;
 
-		No(int m, string n) {
-			mat = m;
-			nome = n;			
+		No(Iteml n) {
+			item = n;
 			prox = NULL;
 		}
 };
@@ -30,8 +30,8 @@ class Lista {
 			return (inicio == NULL);
 		}
 
-		void listarAoFinal(int m, string n){
-			No *novo = new No(m, n);
+		void listarAoFinal(Iteml n){
+			No *novo = new No(n);
 
 			if (this->listaVazia()) {
 				inicio = novo;
@@ -42,8 +42,8 @@ class Lista {
 			}
 		}
 
-		void listarAoInicio(int m, string n){
-			No *novo = new No(m, n);
+		void listarAoInicio(Iteml n){
+			No *novo = new No(n);
 
 			if (this->listaVazia()) {
 				inicio = novo;
@@ -58,28 +58,26 @@ class Lista {
 			if (this->listaVazia()){
 				cout << "Lista vazia!" << endl;
 			} else {
-				cout << "Lista de alunos: " << endl << endl;
+				cout << "Lista: ";
 
 				No *aux = inicio;
-				int cont = 1;
 
 				while (aux != NULL) {
-					cout << "Aluno " << cont << endl;
-					cont++;
-
-					cout << "Nome: " << aux->nome << endl << "Matrícula: " << aux->mat << endl << endl;
+					cout << aux->item << " ";
 
 					aux = aux->prox;
 				}
+
+                cout << endl;
 			}
 		}
-
-		void consultar(int mat) {
+/*
+		void consultar(Iteml item) {
 			No *aux = inicio;
 			No *alunoBuscado = NULL;
 
 			while (aux->prox != NULL) {
-				if (aux->mat == mat) {
+				if (aux->item == item) {
 					alunoBuscado = aux;
 					break;
 				}  
@@ -91,11 +89,11 @@ class Lista {
 				cout << "Aluno não encontrado!" << endl << endl;
 			} else {
 				cout << "Aluno encontrado:" << endl << endl;
-				cout << "Nome: " << alunoBuscado->nome << endl << "Matrícula: " << alunoBuscado->mat << endl << endl;
+				cout << "Matrícula: " << alunoBuscado->item << endl << endl;
 			}
 		}
 		
-		void remover(int mat) {
+		void remover(Iteml item) {
 			if (this->listaVazia()) {
 				cout << "Lista vazia!" << endl;
 			} else {
@@ -103,7 +101,7 @@ class Lista {
 				No *anterior = NULL;
 
 				while (aux->prox != NULL) {
-					if (aux->mat == mat) {
+					if (aux->item == item) {
 						anterior->prox = aux->prox;
 						free(aux);
 						break;
@@ -137,12 +135,12 @@ class Lista {
 				No *aux = inicio;
 				
 				while (aux->prox != NULL) {
-					listaInvertida->listarAoInicio(aux->mat, aux->nome);
+					listaInvertida->listarAoInicio(aux->item);
 
 					aux = aux->prox;
 				}
 
-				listaInvertida->listarAoInicio(aux->mat, aux->nome);
+				listaInvertida->listarAoInicio(aux->item);
 
 				return listaInvertida;
 			}	
@@ -155,43 +153,12 @@ class Lista {
 			No *aux = listaInvertida->inicio;
 
 			while (aux->prox != NULL) {
-				this->listarAoFinal(aux->mat, aux->nome);
+				this->listarAoFinal(aux->item);
 
 				aux = aux-> prox;
 			}
 
-			this->listarAoFinal(aux->mat, aux->nome);
+			this->listarAoFinal(aux->item);
 		}
+*/
 };
-
-
-int main() {
-	Lista *l1 = new Lista();
-
-	l1->listarAoFinal(1, "Joao");
-	l1->listarAoFinal(2, "Gabriela");
-	l1->listarAoFinal(3, "Fabiola");
-	l1->listarAoInicio(5, "Joana Oliveira");
-	l1->listarAoInicio(6, "Cristiano Oliveira");
-	l1->mostrarLista();
-
-	//l1->consultar(2);
-	//l1->consultar(11);
-
-	//l1->remover(2);
-	//l1->mostrarLista();
- 
-	//l1->listaInvertida();
-	//l1->mostrarLista();
-
-	//Lista *l2 = l1->criarListaInvertida();
-	//l2->mostrarLista();
-
-	//l1->listaInvertida();
-	//l1->mostrarLista();
-
-	//l1->removerTodos();
-	//l1->mostrarLista();
-
-	return 0;
-}

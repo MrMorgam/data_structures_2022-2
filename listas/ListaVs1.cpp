@@ -3,15 +3,15 @@
 
 using namespace std;
 
-typedef struct aluno{
+typedef struct no{
 	int matricula;
 	string nome;
-} Aluno; 
+} Lista; 
 
-Aluno turma[5];
+Lista turma[5];
 int topo = -1;
 
-void inserir(Aluno a){
+void inserir(Lista a){
 	int qtdAlunos = sizeof(turma) / sizeof(turma[0]);
 	if (topo < qtdAlunos - 1) {
 		turma[++topo] = a;
@@ -73,7 +73,7 @@ void remover01(int posicao) {
 		topo--;
 
 		for (int i = indice; i < topo + 1; i++) {
-			Aluno aux = turma[i+1];
+			Lista aux = turma[i+1];
 			turma[i] = aux;
 		}
 	} else {
@@ -92,11 +92,11 @@ void exibirAlunos() {
 }
 
 int main() {
-	Aluno joao;
-	Aluno maria;
-	Aluno jose;
-	Aluno ana;
-	Aluno pedro;
+	Lista joao;
+	Lista maria;
+	Lista jose;
+	Lista ana;
+	Lista pedro;
 
 	joao.matricula = 12345;
 	joao.nome = "João da Silva";
