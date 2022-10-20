@@ -3,8 +3,16 @@
 
 using namespace std;
 
-char enesimo(char n, Lista l) {
-    return 0;
+char enesimo(int n, Lista l) {
+    if (n < 0) {
+        return '0';
+    }
+
+    if (n == 1) {
+        return l->item;
+    } else {
+        return enesimo(n-1, l->prox);
+    }
 }
 
 int main() {
