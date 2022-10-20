@@ -1,44 +1,31 @@
-#include "./lista.h"
+#include "./lista_int.h"
 #include <iostream>
 
 using namespace std;
 
-int ocorrencias(int x, Lista *l) {
-    No *aux = l->inicio;
+int ocorrencias(int x, Lista l) {
+    int contador = 0;
 
-    int conta = 0;
-
-    while (aux->prox != NULL) {
-        if (aux->item == x) {
-            conta++;
+    while (l->prox != NULL) {
+        if (l->item == x) {
+            contador++;
         }
 
-        aux = aux->prox;
+        l = l->prox;
     }
 
-    if (aux->item == x) {
-            conta++;
+    if (l->item == x) {
+        contador++;
     }
 
-    return conta;
+    return contador;
 }
 
 int main() {
-    Lista *l = new Lista();
+    Lista l = no(1, no(2, no(1, no(4, no(1, NULL)))));
+    exibeLista(l);
 
-    l->listarAoFinal(1);
-    l->listarAoFinal(2);
-    l->listarAoFinal(1);
-    l->listarAoFinal(4);
-    l->listarAoFinal(1);
+    cout << "Ocorrências do número 1: " << ocorrencias(1, l) << endl;
 
-    l->mostrarLista();
-
-    int num = 1;
-    int num_ocorrencias = ocorrencias(num, l);
-
-    cout << "O número " <<  num << " apareceu " << num_ocorrencias << " vez(es)." << endl;
-
-    
     return 0;
 }

@@ -1,36 +1,21 @@
-#include "./lista.h"
+#include "./lista_int.h"
 #include <iostream>
 
 using namespace std;
 
-int soma(Lista *l) {
-	No *aux = l->inicio;
-
-    int soma = 0;
-
-    while (aux != NULL) {
-        soma = soma + aux->item;
-
-        aux = aux->prox;
+int substitui(Lista l) {
+    if (l->prox == NULL) {
+        return l->item;
+    } else {
+        return l->item + substitui(l->prox);
     }
-
-    return soma;
 }
 
 int main() {
-    Lista *l = new Lista();
+    Lista l = no(3,no(1, no(5, no(4, NULL))));
+    exibeLista(l);
 
-    l->listarAoFinal(1);
-    l->listarAoFinal(2);
-    l->listarAoFinal(1);
-    l->listarAoFinal(4);
-    l->listarAoFinal(1);
-
-    l->mostrarLista();
-
-    int soma_lista = soma(l);
-
-    cout << "Soma dos elementos da lista: " << soma_lista << endl;
+    cout << "Soma dos elementos da lista: " << substitui(l) << endl;
 
     
     return 0;

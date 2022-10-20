@@ -1,21 +1,26 @@
-#include "./lista.h"
+#include "./lista_char.h"
 #include <iostream>
 
 using namespace std;
 
-int subtitui(char a, char b, Lista *l) {
+void substitui(char x, char y, Lista l) {
+    if (l == NULL) {
+       return;
+    }
+        
+    if (l->item == x) {
+        l->item = y;
+    }
 
+    return substitui(x, y, l->prox);
 }
 
 int main() {
-    Lista *l = new Lista();
+    Lista l = no('b',no('o', no('b', no('o', NULL))));
+    exibeLista(l);
 
-    l->listarAoFinal('b');
-    l->listarAoFinal('o');
-    l->listarAoFinal('b');
-    l->listarAoFinal('o');
-
-    l->mostrarLista();
+    substitui('o', 'a', l);
+    exibeLista(l);
 
     
     return 0;
