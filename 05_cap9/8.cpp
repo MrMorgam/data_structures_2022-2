@@ -4,7 +4,7 @@
 using namespace std;
 
 char enesimo(int n, Lista l) {
-    if (n < 0) {
+    if (n < 0 || l == NULL) {
         return '0';
     }
 
