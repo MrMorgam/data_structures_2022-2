@@ -193,36 +193,6 @@ class Lista {
 
 int main(){
     Lista *l = new Lista();
-    
-    /*l->addToFinal(2 ,"Gabriel Morais");
-    l->addToFinal(3, "Vitor Araujo");
-    l->addToIni(1 ,"Adelia Carvalho");
-   
-    l->mostraIniFim();
-    l->mostraFimIni();
-
-    l->removerInicio();
-    l->removerFinal();
-    l->mostraIniFim();
-
-    l->remover(2);
-
-    l->mostraIniFim();
-
-    l->addToFinal(2 ,"Gabriel Morais");
-    l->addToFinal(3, "Vitor Araujo");
-    l->addToIni(1 ,"Adelia Carvalho");
-
-    l->mostraIniFim();
-
-    l->remover(2);
-
-    l->mostraIniFim();
-
-    l->addOrd(2 ,"Gabriel Morais");
-
-    l->mostraIniFim(); */
-
 
     l->addOrd(1,"Joana Oliveira");
     l->addOrd(10,"Cristiano Oliveira");
