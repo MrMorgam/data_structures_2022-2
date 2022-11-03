@@ -61,40 +61,16 @@ class Lista {
 
         }
 
-        void addOrd(int m, char n[23]) { // Arrumar
+        void addOrd(int m, char n[23]) {
             No *novo = new No(m, n);
             No *aux = inicio;
 
             if (inicio != NULL) {
-                while (aux != NULL) {
-                    if (aux->mat >= novo->mat) {
-                        if(aux->ant != NULL) {
-                            (aux->ant)->prox = novo;
-                            aux->ant = novo;
+                if (aux->prox != NULL && aux->ant != NULL) {
 
-                            novo->prox = aux;
-                            novo->ant = aux->ant;
-                        } else {
-                            inicio = novo;
-
-                            aux->ant = novo;
-
-                            novo->prox = aux;
-                        }
-
-                        break;
-                    }
-
-                    aux = aux->prox;
+                } else {
+                    if (aux->mat)
                 }
-                
-                if (aux == NULL) {
-                    fim->prox = novo;
-                    novo->ant = fim;
-
-                    fim = novo;
-                }  
-
             } else {
                 inicio = novo;
                 fim = novo;
