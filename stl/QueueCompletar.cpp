@@ -46,19 +46,13 @@ class Queue: public queue<T> {
 int main() {
 	Queue<int> fila;
 
-	fila.push(1);
-	fila.push(2);
-	fila.push(3);
-
-	cout << fila.popQueue() << endl;
-
-	/*cout << fila.front() << endl;
+	cout << fila.front() << endl;
 
 	fila.simulaPilha(1);
 	fila.simulaPilha(2);
 	fila.simulaPilha(3);
 
-	cout << fila.front() << endl;*/
+	cout << fila.front() << endl;
 
 
 	return 0;
