@@ -23,7 +23,23 @@ class Stack: public stack<T> {
     	}
 	
 		void simulaFila(T novo){
-				
+			Stack<int> pilha_aux;
+
+			T tmp;
+
+			while (!pilha.empty()) {
+				tmp = pilha.top();
+				pilha_aux.push(tmp);
+				pilha.pop();
+			}
+
+			pilha.push(novo);
+
+			while (!pilha_aux.empty()) {
+				tmp = pilha_aux.top();
+				pilha.push(tmp);
+				pilha_aux.pop();
+			}
 		}
 	
 	
@@ -31,13 +47,15 @@ class Stack: public stack<T> {
 
 int main(){
 	Stack<int> pilha;
-	pilha.push(1);
-	pilha.push(2);
-	pilha.push(3);
+	
+	cout << pilha.top() << endl;
 
-	pilha.popTodos();
+	pilha.simulaFila(1);
+	pilha.simulaFila(2);
+	pilha.simulaFila(3);
 
 	cout << pilha.top() << endl;
+
 	
 	return 0;
 }
