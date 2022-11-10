@@ -1,9 +1,10 @@
 #include <iostream>
+#include <string.h>
 
 using namespace std;
 
-void insere(int x, int v[], int n) {
-    while (n > 0 && x < v[n-1]) {
+void insere(char* x, char* v[], int n) {
+    while (n > 0 && strcmp(x, v[n-1]) < 0) {
         v[n] = v[n-1];
         n--;
     }
@@ -11,14 +12,14 @@ void insere(int x, int v[], int n) {
     v[n] = x;
 }
 
-void insertion_sort(int v[], int n) {
+void insertion_sort(char* v[], int n) {
     for (int i = 0; i < n; i++) {
         insere(v[i], v, i);
     }
 }
 
 int main() {
-    int v[5] = {8, 2, 5, 3, 1};
+    char* v[5] = {"cbd", "abc", "def", "bcd", "asd"};
 
     insertion_sort(v, 5);
 
